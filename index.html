@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Hub</title>
+    <style>
+        body {
+            background-color: black;
+            color: yellow;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #searchBar {
+            width: 50%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        #gamesList {
+            list-style: none;
+            padding: 0;
+        }
+
+        #gamesList li {
+            margin: 10px 0;
+        }
+
+        #gamesList a {
+            color: yellow;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        #gamesList a:hover {
+            text-decoration: underline;
+            color: red; /* Turns red when hovered */
+        }
+    </style>
+    <script>
+        function searchGames() {
+            let input = document.getElementById("searchBar").value.toLowerCase();
+            let games = document.querySelectorAll("#gamesList li");
+
+            games.forEach(game => {
+                let text = game.textContent.toLowerCase();
+                if (text.includes(input)) {
+                    game.style.display = "block";
+                } else {
+                    game.style.display = "none";
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to Game Hub!</h1>
+    <input type="text" id="searchBar" onkeyup="searchGames()" placeholder="Search for a game...">
+    <ul id="gamesList">
+        <li><a href="SpaceCompany.htm">Space Company</a></li>
+    </ul>
+</body>
+</html>
